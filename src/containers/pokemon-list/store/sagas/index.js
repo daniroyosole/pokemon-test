@@ -22,7 +22,7 @@ export function* getList({payload}) {
 
 function getData(payload) {
   const cookies = new Cookies();
-  const cachedList = cookies.get(COOKIES_LIST+(payload+1));
+  const cachedList = cookies.get(COOKIES_LIST+payload);
   if (typeof cachedList !== "undefined" && cachedList.length >= 0) {
     return { results: cachedList }; 
   } else {

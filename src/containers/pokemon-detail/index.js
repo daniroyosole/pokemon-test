@@ -8,13 +8,13 @@ import ReactLoading from 'react-loading';
 import { capitalize } from '@Utils/utils';
 import { getPokemonDetail } from './store/actions';
 import {
-  ListWrapper,
-  ListItem,
+  DetailWrapper,
+  DetailItem,
   Wrapper,
   TitleWrapper,
   Separator,
   ErrorText,
-  ListContainer,
+  DetailContainer,
   TextLink,
   TypeItem
 } from './styles';
@@ -37,7 +37,7 @@ class PokemonDetail extends Component {
     const { detail, loading, error } = this.props;
 
     return (
-      <ListWrapper>
+      <DetailWrapper>
         <Wrapper borderRight alignItems="center">
           <TitleWrapper>
             <TextLink onClick={this.props.history.goBack}>Pokémunz</TextLink>
@@ -48,26 +48,26 @@ class PokemonDetail extends Component {
         { error ? <ErrorText>Error... Please go back and try again :)</ErrorText> : null }
         {loading ? <ReactLoading type="spinningBubbles" color="black" height="30px" width="30px"/> : null}
         {typeof detail.name != "undefined" ? 
-          <ListContainer>
-            <ListItem>
-              <Text>Name:</Text> <Text bold> {capitalize(detail.name)}</Text>
-            </ListItem>
-            <ListItem>
-              <Text>id: {detail.id}</Text>
-            </ListItem>
-            <Text>Types:</Text>
+          <DetailContainer>
+            <DetailItem>
+              <Text bold>Name:</Text><Text>{capitalize(detail.name)}</Text>
+            </DetailItem>
+            <DetailItem>
+              <Text bold>id:</Text><Text>{detail.id}</Text>
+            </DetailItem>
+            <Text bold>Types:</Text>
             {typeof detail.types !== "undefined" ? detail.types.map((type, key) => {
               return(
                 <TypeItem key={"types-"+key}>
-                  <Text>  -{capitalize(type.type.name)}</Text>
+                  <Text>- {capitalize(type.type.name)}</Text>
                 </TypeItem>
               )
             }) : null}
-            <Text>Number of moves: 4</Text>
-          </ListContainer>
+            <Text bold>Number of moves:</Text> <Text>{detail.nmoves}</Text>
+          </DetailContainer>
         : null}
         </Wrapper>
-      </ListWrapper>
+      </DetailWrapper>
     );
   }
 }

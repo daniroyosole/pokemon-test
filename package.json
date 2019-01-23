@@ -4,14 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
     "dev": "npm run webpack-dev-server -- --mode development --watch",
-    "prod": "npm run webpack -- --mode production"
+    "prod": "npm run webpack -- --mode production",
+    "predeploy": "npm run prod",
+    "deploy": "gh-pages -d dist",
+    "test": "jest",
+    "lint": "eslint 'src/**/*.{js,jsx}' -- --fix",
+    "prepush": "npm run lint"
   },
   "author": "Daniel Royo",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniroyosole/pokemon-test.git"
+  },
+  "homepage": "http://daniroyosole.github.io/pokemon-test#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-runtime": "^7.2.0",
@@ -23,6 +32,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^2.1.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
     "react-test-renderer": "^16.7.0",

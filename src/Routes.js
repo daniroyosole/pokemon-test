@@ -10,7 +10,7 @@ import {
 const Routes = () => (
   <Router>
     <Switch>
-      <Route exact path={'/'} component={PokemonList} />
+      <Route exact path='/' component={PokemonList} />
       <Route path='/:id' component={PokemonDetail} />
     </Switch>
   </Router>

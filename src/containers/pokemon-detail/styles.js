@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ListWrapper = styled.div`
+export const DetailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -10,13 +10,13 @@ export const ListWrapper = styled.div`
   padding: 0px;
 `;
 
-export const ListContainer = styled.div`
+export const DetailContainer = styled.div`
   height: 400px;
   overflow: auto;
   width: 100%;
 `;
 
-export const ListItem = styled.div`
+export const DetailItem = styled.div`
   display: flex;
 `;
 

@@ -1,6 +1,6 @@
 import { get } from '../utils/http';
 
-const POKEMON_BASEURL = 'http://pokeapi.salestock.net/api/v2/pokemon/';
+const POKEMON_BASEURL = 'https://pokeapi.co/api/v2/pokemon/';
 
 export const getPokemonList = (start = 0, num = 30) => {
     const pokemonGetUrl = `${POKEMON_BASEURL}?limit=${num}&offset=${start*num}`;

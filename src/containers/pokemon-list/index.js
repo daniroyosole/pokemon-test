@@ -26,18 +26,19 @@ class PokemonList extends Component {
   theme = {dark: 'gray', error: 'red'};
 
   componentDidMount = () => {
-    this.getNextBlock(0);
+    if (this.props.pokemonList.length === 0) {
+      this.getNextBlock(0);
+    }
   }
 
   getNextBlock = (pageNumber) => {
     const { getPokemonList } = this.props;
-    getPokemonList(parseInt(pageNumber));
-  }
+    const { filterText } = this.state;
 
-  seeDetails = (id) => {
-    return <Redirect to={"/"+id} />
+    if (filterText === '') {
+      getPokemonList(parseInt(pageNumber));
+    }
   }
-
 
   handleFilterText = event => {
     this.setState({filterText: event.target.value});
@@ -57,11 +58,12 @@ class PokemonList extends Component {
   render() {
     const {
       pokemonList,
-      pageNumber
+      pageNumber,
+      location
     } = this.props;
     const { filterText } = this.state;
     const filteredList = pokemonList.length > 0 && filterText.length > 0 ? this.filterList(filterText, pokemonList) : pokemonList;
-
+console.log(location)
     return (
       <ListWrapper>
         <Wrapper borderRight alignItems="center">
@@ -79,7 +81,7 @@ class PokemonList extends Component {
               dataLength={filteredList.length}
               next={() => this.getNextBlock(pageNumber+1)}
               hasMore={filteredList.length < 810}
-              loader={filteredList.length === 0 ? null : <h4>Loading...</h4>}
+              loader={filteredList.length === 0 || filterText !== '' ? null : <h4>Loading...</h4>}
               endMessage={
                 <p style={{textAlign: 'center'}}>
                   <b>Yay! You have caught'em all!</b>
@@ -88,7 +90,7 @@ class PokemonList extends Component {
               {filteredList.length > 0 ? filteredList.map((item, key) => {
                 return (
                   <ListItem key={"pkm-"+(key+1)}>
-                    <Link to={'/'+(item.id ? item.id : key+1)}>
+                    <Link to={location.pathname+(item.id ? item.id : key+1)}>
                       <Text>{capitalize(item.name)}</Text>
                     </Link>
                   </ListItem>

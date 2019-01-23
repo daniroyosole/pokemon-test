@@ -7,7 +7,7 @@ import {
   import Cookies from 'universal-cookie';
 
   const initialState = {
-    pageNumber: 0,
+    pageNumber: -1,
     pokemonList: []
   }
   
