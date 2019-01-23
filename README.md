@@ -9,8 +9,13 @@
 * Infinite scroll: <a href="/ankeetmaini/react-infinite-scroll-component">react-infinite-scroll-component</a>
 
 ## Install and run
-* ```npm install``` To install the project
-* ```npm run dev``` When called, the app will start running at localhost:8080. If the port is busy, it will try to find the next available port (8081, ...)
+```
+git clone https://github.com/daniroyosole/pokemon-test.git
+cd pokemon-test
+npm install
+npm run dev
+```
+When the last command line is called, the app will start running at localhost:8080. If the port is busy, it will try to find the next available port (8081, ...)
 
 ## Test
 ```
