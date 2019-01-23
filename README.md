@@ -5,6 +5,8 @@
 * Redux
 * Redux Sagas
 * Styled Components
+* Test with Jest
+* Infinite scroll: <a href="/ankeetmaini/react-infinite-scroll-component">react-infinite-scroll-component</a>
 
 ## Install and run
 * ```npm install``` To install the project
