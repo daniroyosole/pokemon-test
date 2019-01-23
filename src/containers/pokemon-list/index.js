@@ -89,7 +89,7 @@ class PokemonList extends Component {
               {filteredList.length > 0 ? filteredList.map((item, key) => {
                 return (
                   <ListItem key={"pkm-"+(key+1)}>
-                    <Link to={location.pathname+(item.id ? item.id : key+1)}>
+                    <Link to={"/"+(item.id ? item.id : key+1)}>
                       <Text>{capitalize(item.name)}</Text>
                     </Link>
                   </ListItem>

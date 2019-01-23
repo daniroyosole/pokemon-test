@@ -3,7 +3,7 @@
 ## Core Libraries
 * React
 * Redux
-* Redux Sagas
+* Redux Saga
 * Styled Components
 * Test with Jest
 * Infinite scroll: <a href="/ankeetmaini/react-infinite-scroll-component">react-infinite-scroll-component</a>
