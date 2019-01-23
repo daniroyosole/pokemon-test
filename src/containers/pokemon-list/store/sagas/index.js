@@ -1,6 +1,7 @@
-import { put } from 'redux-saga/effects';
+import { put, takeEvery, fork, all } from 'redux-saga/effects';
 import { COOKIES_LIST } from '@Utils/utils';
 import { getPokemonList } from '@Services/pokemon';
+import { GET_LIST_REQUEST } from '../actions/actionTypes';
 import {
   getPokemonListSuccess,
   getPokemonListFailure,
@@ -29,3 +30,14 @@ function getData(payload) {
     return getPokemonList(payload);
   }
 }
+
+function* watchGetList() {
+  takeEvery(GET_LIST_REQUEST, getList);
+};
+
+
+export default function* root() {
+  yield all([
+    fork(watchGetList)
+  ]);
+};

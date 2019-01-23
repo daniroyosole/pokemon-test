@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 // You can add Container import in the line above: { Component, Container }
 import { connect } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 import {
   Text,
 } from '@Components';
-import ReactLoading from 'react-loading';
 import { capitalize } from '@Utils/utils';
 import { getPokemonDetail } from './store/actions';
 import {
@@ -16,17 +17,11 @@ import {
   ErrorText,
   DetailContainer,
   TextLink,
-  TypeItem
+  TypeItem,
 } from './styles';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 class PokemonDetail extends Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount = () => {
+  componentDidMount() {
     const { getPokemonDetail } = this.props;
     if (typeof this.props.match.params.id !== "undefined") {
       getPokemonDetail(parseInt(this.props.match.params.id));

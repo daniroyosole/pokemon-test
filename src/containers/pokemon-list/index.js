@@ -23,7 +23,6 @@ class PokemonList extends Component {
   state = {
     filterText: ''
   }
-  theme = {dark: 'gray', error: 'red'};
 
   componentDidMount = () => {
     if (this.props.pokemonList.length === 0) {
@@ -63,7 +62,7 @@ class PokemonList extends Component {
     } = this.props;
     const { filterText } = this.state;
     const filteredList = pokemonList.length > 0 && filterText.length > 0 ? this.filterList(filterText, pokemonList) : pokemonList;
-console.log(location)
+
     return (
       <ListWrapper>
         <Wrapper borderRight alignItems="center">
@@ -72,7 +71,7 @@ console.log(location)
           </TitleWrapper>
         </Wrapper>
         <Wrapper>
-          <Input placeholder="Search by name or id" errored={filteredList.length === 0} theme={this.theme} onChange={this.handleFilterText}/>
+          <Input placeholder="Search by name or id" errored={filteredList.length === 0} onChange={this.handleFilterText}/>
         </Wrapper>
         <Wrapper borderRight alignItems="center">
           <ListContainer>

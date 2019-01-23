@@ -11,7 +11,6 @@
     "predeploy": "npm run prod",
     "deploy": "gh-pages -d dist",
     "test": "jest",
-    "lint": "eslint 'src/**/*.{js,jsx}' -- --fix",
     "prepush": "npm run lint"
   },
   "author": "Daniel Royo",
@@ -62,7 +61,8 @@
       "^@Components(.*)$": "<rootDir>/src/components$1",
       "^@Containers(.*)$": "<rootDir>/src/containers$1",
       "^@Services(.*)$": "<rootDir>/src/services$1",
-      "^@Store(.*)$": "<rootDir>/src/Store$1",
+      "^@Store(.*)$": "<rootDir>/src/store$1",
+      "^@Styles(.*)$": "<rootDir>/src/styles$1",
       "^@Utils(.*)$": "<rootDir>/src/utils$1",
       ".+\\.(css|scss|png|jpg|ttf|woff|woff2)$": "jest-transform-stub"
     }

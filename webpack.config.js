@@ -19,11 +19,11 @@ module.exports = () => ({
  resolve: {
    extensions: ['*', '.js', '.jsx'],
    alias: {
-    '@Assets': path.resolve(__dirname, './src/assets'),
     '@Components': path.resolve(__dirname, './src/components'),
     '@Containers': path.resolve(__dirname, './src/containers'),
     '@Services': path.resolve(__dirname, './src/services'),
     '@Store': path.resolve(__dirname, './src/store'),
+    '@Styles': path.resolve(__dirname, './src/styles'),
     '@Utils': path.resolve(__dirname, './src/utils'),
    },
  },

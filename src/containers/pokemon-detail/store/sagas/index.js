@@ -1,4 +1,4 @@
-import { put } from 'redux-saga/effects';
+import { put, takeEvery, fork, all} from 'redux-saga/effects';
 import { getPokemonDetails } from '@Services/pokemon';
 import {
   getPokemonDetailSuccess,
@@ -6,11 +6,11 @@ import {
 } from '../actions';
 import Cookies from 'universal-cookie';
 import { COOKIES_DETAIL, getNewTime } from '@Utils/utils';
+import { GET_DETAIL_REQUEST } from '../actions/actionTypes';
 
 export function* getDetail({payload}) {
   try {
     const response = yield getData(payload);
-    console.log(response)
     if (typeof response !== "undefined" && typeof response.id !== "undefined") {
       const cookies = new Cookies();
       let responseCookie = response
@@ -32,14 +32,22 @@ export function* getDetail({payload}) {
   }
 };
 
-
 function getData(payload) {
   const cookies = new Cookies();
   const cookiesData = cookies.get(COOKIES_DETAIL+payload);
   if (typeof cookiesData !== "undefined" && typeof cookiesData.id !== "undefined") {
-    console.log(cookiesData)
       return cookiesData;     
   } else {
     return getPokemonDetails(payload);
   }
 }
+
+export function* watchGetData() {
+  takeEvery(GET_DETAIL_REQUEST, getDetail);
+};
+
+export default function* root() {
+  yield all([
+    fork(watchGetData)
+  ]);
+};
