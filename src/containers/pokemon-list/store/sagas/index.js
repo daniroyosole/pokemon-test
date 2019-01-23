@@ -31,13 +31,8 @@ function getData(payload) {
   }
 }
 
-function* watchGetList() {
-  takeEvery(GET_LIST_REQUEST, getList);
-};
-
-
 export default function* root() {
   yield all([
-    fork(watchGetList)
+    takeEvery(GET_LIST_REQUEST, getList)
   ]);
 };

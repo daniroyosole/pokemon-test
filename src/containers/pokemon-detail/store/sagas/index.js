@@ -42,12 +42,8 @@ function getData(payload) {
   }
 }
 
-export function* watchGetData() {
-  takeEvery(GET_DETAIL_REQUEST, getDetail);
-};
-
 export default function* root() {
   yield all([
-    fork(watchGetData)
+    takeEvery(GET_DETAIL_REQUEST, getDetail)
   ]);
 };

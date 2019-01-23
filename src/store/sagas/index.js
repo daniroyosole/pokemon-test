@@ -1,4 +1,4 @@
-import { all, takeEvery, fork } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
 // Container sagas
 import listSaga from '@Containers/pokemon-list/store/sagas';
