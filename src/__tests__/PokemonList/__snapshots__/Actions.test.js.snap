@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getPokemonList 1`] = `
+Object {
+  "payload": 1,
+  "type": "GET_LIST_REQUEST",
+}
+`;
+
+exports[`getPokemonListFailure 1`] = `
+Object {
+  "error": Object {},
+  "type": "GET_LIST_FAILURE",
+}
+`;
+
+exports[`getPokemonListSuccess 1`] = `
+Object {
+  "response": Object {
+    "results": Array [],
+  },
+  "type": "GET_LIST_SUCCESS",
+}
+`;
